@@ -15,13 +15,13 @@ public class TestPlayer : MonoBehaviour
 		{
 			timer = 0;
 			Bomb _bomb = Instantiate<Bomb>(bombRef);
-			_bomb.Spawn(transform.position);
+			_bomb.Spawn(transform);
 		}
 	}
 	public void DamagePlayer(int _damage)
 	{
-		life -= _damage;
-		if (life <= 0)
+		life = life - _damage < 0 ? 0 : life - _damage;
+		if (life == 0)
 			Destroy(gameObject);
 	}
 }

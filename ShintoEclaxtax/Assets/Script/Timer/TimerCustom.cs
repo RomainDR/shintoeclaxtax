@@ -22,4 +22,5 @@ public class TimerCustom : MonoBehaviour
 	public void StartTimer() => isStarted = true;
 
 	public void StopTimer() => isStarted = false;
+
 }

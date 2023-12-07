@@ -21,7 +21,24 @@ public class IceExplode : ExplodeZone
 	private void OnDrawGizmos()
 	{
 		if (!sphereCollider) return;
-		Gizmos.color = Color.yellow;
+		Gizmos.color = Color.cyan;
 		Gizmos.DrawWireSphere(transform.position, size / 2);
+	}
+
+	public override void OnTriggerEnter(Collider _other)
+	{
+		base.OnTriggerEnter(_other);
+		/*ExplodeZone _bomb = _other.GetComponent<ExplodeZone>();
+		if (!_bomb) return;
+		FireExplode _fireBomb = Cast<FireExplode>(_bomb);
+		if (_fireBomb)
+		{
+			_fireBomb.Timer.StopTimer();
+		}*/
+	}
+
+	public T Cast<T>(ExplodeZone _bomb) where T : ExplodeZone
+	{
+		return (T)_bomb;
 	}
 }

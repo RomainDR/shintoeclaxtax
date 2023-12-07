@@ -9,6 +9,10 @@ public class ExplodeZone : MonoBehaviour
 	[SerializeField] protected int playerDamage;
 	[SerializeField] protected TimerCustom timer;
 
+	private void Start()
+	{
+		timer = GetComponent<TimerCustom>();
+	}
 	public virtual void Init(Vector3 _position) { }
 	public virtual void Delete() { Destroy(gameObject); }
 
@@ -18,5 +22,6 @@ public class ExplodeZone : MonoBehaviour
 		if (!_player) return;
 		_player.DamagePlayer(playerDamage);
 	}
+	public virtual TimerCustom Timer => timer;
 
 }
