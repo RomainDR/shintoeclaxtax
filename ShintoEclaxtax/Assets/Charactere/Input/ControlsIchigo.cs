@@ -28,10 +28,28 @@ public partial class @ControlsIchigo: IInputActionCollection2, IDisposable
             ""id"": ""41f090e8-03dc-47ed-8e13-641874058aff"",
             ""actions"": [
                 {
-                    ""name"": ""Forward"",
+                    ""name"": ""Move"",
                     ""type"": ""Value"",
                     ""id"": ""f3d91a81-837a-456e-85cb-893f7aa0e9b7"",
                     ""expectedControlType"": ""Vector3"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""Bombe"",
+                    ""type"": ""Button"",
+                    ""id"": ""a0dd5518-e0a9-4e50-b6ed-1cacb4c9d88f"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""RotateCam"",
+                    ""type"": ""Value"",
+                    ""id"": ""d3b58cf9-0d86-4c49-8e04-e8daddff1224"",
+                    ""expectedControlType"": ""Axis"",
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
@@ -45,7 +63,7 @@ public partial class @ControlsIchigo: IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Forward"",
+                    ""action"": ""Move"",
                     ""isComposite"": true,
                     ""isPartOfComposite"": false
                 },
@@ -56,7 +74,7 @@ public partial class @ControlsIchigo: IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Forward"",
+                    ""action"": ""Move"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 },
@@ -67,7 +85,7 @@ public partial class @ControlsIchigo: IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Forward"",
+                    ""action"": ""Move"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 },
@@ -78,7 +96,7 @@ public partial class @ControlsIchigo: IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Forward"",
+                    ""action"": ""Move"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 },
@@ -89,7 +107,7 @@ public partial class @ControlsIchigo: IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Forward"",
+                    ""action"": ""Move"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 },
@@ -100,7 +118,7 @@ public partial class @ControlsIchigo: IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Forward"",
+                    ""action"": ""Move"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 },
@@ -111,37 +129,53 @@ public partial class @ControlsIchigo: IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Forward"",
+                    ""action"": ""Move"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
-                }
-            ]
-        },
-        {
-            ""name"": ""Bombe"",
-            ""id"": ""90a9d20a-4cce-4993-9864-9f97f7af7d88"",
-            ""actions"": [
-                {
-                    ""name"": ""SpawnBomb"",
-                    ""type"": ""Button"",
-                    ""id"": ""1a82621e-31a4-47f3-8069-ccc224f23d56"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                }
-            ],
-            ""bindings"": [
+                },
                 {
                     ""name"": """",
-                    ""id"": ""081a1f15-ba2c-4f3f-b9ad-b05aad96f7b5"",
+                    ""id"": ""3b599c8c-d74f-4309-890c-3869dd340b4e"",
                     ""path"": ""<Mouse>/leftButton"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""SpawnBomb"",
+                    ""action"": ""Bombe"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""1D Axis"",
+                    ""id"": ""c969c911-4743-403f-81f3-6a40574e3e09"",
+                    ""path"": ""1DAxis"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""RotateCam"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""negative"",
+                    ""id"": ""363dd7e4-9f2e-4388-8115-798ee1b41a6c"",
+                    ""path"": ""<Mouse>/delta/left"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""RotateCam"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""positive"",
+                    ""id"": ""3ecbf7f9-a31a-4a36-86c3-8ad2f14b4029"",
+                    ""path"": ""<Mouse>/delta/right"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""RotateCam"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
                 }
             ]
         }
@@ -150,10 +184,9 @@ public partial class @ControlsIchigo: IInputActionCollection2, IDisposable
 }");
         // Movement
         m_Movement = asset.FindActionMap("Movement", throwIfNotFound: true);
-        m_Movement_Forward = m_Movement.FindAction("Forward", throwIfNotFound: true);
-        // Bombe
-        m_Bombe = asset.FindActionMap("Bombe", throwIfNotFound: true);
-        m_Bombe_SpawnBomb = m_Bombe.FindAction("SpawnBomb", throwIfNotFound: true);
+        m_Movement_Move = m_Movement.FindAction("Move", throwIfNotFound: true);
+        m_Movement_Bombe = m_Movement.FindAction("Bombe", throwIfNotFound: true);
+        m_Movement_RotateCam = m_Movement.FindAction("RotateCam", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -215,12 +248,16 @@ public partial class @ControlsIchigo: IInputActionCollection2, IDisposable
     // Movement
     private readonly InputActionMap m_Movement;
     private List<IMovementActions> m_MovementActionsCallbackInterfaces = new List<IMovementActions>();
-    private readonly InputAction m_Movement_Forward;
+    private readonly InputAction m_Movement_Move;
+    private readonly InputAction m_Movement_Bombe;
+    private readonly InputAction m_Movement_RotateCam;
     public struct MovementActions
     {
         private @ControlsIchigo m_Wrapper;
         public MovementActions(@ControlsIchigo wrapper) { m_Wrapper = wrapper; }
-        public InputAction @Forward => m_Wrapper.m_Movement_Forward;
+        public InputAction @Move => m_Wrapper.m_Movement_Move;
+        public InputAction @Bombe => m_Wrapper.m_Movement_Bombe;
+        public InputAction @RotateCam => m_Wrapper.m_Movement_RotateCam;
         public InputActionMap Get() { return m_Wrapper.m_Movement; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -230,16 +267,28 @@ public partial class @ControlsIchigo: IInputActionCollection2, IDisposable
         {
             if (instance == null || m_Wrapper.m_MovementActionsCallbackInterfaces.Contains(instance)) return;
             m_Wrapper.m_MovementActionsCallbackInterfaces.Add(instance);
-            @Forward.started += instance.OnForward;
-            @Forward.performed += instance.OnForward;
-            @Forward.canceled += instance.OnForward;
+            @Move.started += instance.OnMove;
+            @Move.performed += instance.OnMove;
+            @Move.canceled += instance.OnMove;
+            @Bombe.started += instance.OnBombe;
+            @Bombe.performed += instance.OnBombe;
+            @Bombe.canceled += instance.OnBombe;
+            @RotateCam.started += instance.OnRotateCam;
+            @RotateCam.performed += instance.OnRotateCam;
+            @RotateCam.canceled += instance.OnRotateCam;
         }
 
         private void UnregisterCallbacks(IMovementActions instance)
         {
-            @Forward.started -= instance.OnForward;
-            @Forward.performed -= instance.OnForward;
-            @Forward.canceled -= instance.OnForward;
+            @Move.started -= instance.OnMove;
+            @Move.performed -= instance.OnMove;
+            @Move.canceled -= instance.OnMove;
+            @Bombe.started -= instance.OnBombe;
+            @Bombe.performed -= instance.OnBombe;
+            @Bombe.canceled -= instance.OnBombe;
+            @RotateCam.started -= instance.OnRotateCam;
+            @RotateCam.performed -= instance.OnRotateCam;
+            @RotateCam.canceled -= instance.OnRotateCam;
         }
 
         public void RemoveCallbacks(IMovementActions instance)
@@ -257,58 +306,10 @@ public partial class @ControlsIchigo: IInputActionCollection2, IDisposable
         }
     }
     public MovementActions @Movement => new MovementActions(this);
-
-    // Bombe
-    private readonly InputActionMap m_Bombe;
-    private List<IBombeActions> m_BombeActionsCallbackInterfaces = new List<IBombeActions>();
-    private readonly InputAction m_Bombe_SpawnBomb;
-    public struct BombeActions
-    {
-        private @ControlsIchigo m_Wrapper;
-        public BombeActions(@ControlsIchigo wrapper) { m_Wrapper = wrapper; }
-        public InputAction @SpawnBomb => m_Wrapper.m_Bombe_SpawnBomb;
-        public InputActionMap Get() { return m_Wrapper.m_Bombe; }
-        public void Enable() { Get().Enable(); }
-        public void Disable() { Get().Disable(); }
-        public bool enabled => Get().enabled;
-        public static implicit operator InputActionMap(BombeActions set) { return set.Get(); }
-        public void AddCallbacks(IBombeActions instance)
-        {
-            if (instance == null || m_Wrapper.m_BombeActionsCallbackInterfaces.Contains(instance)) return;
-            m_Wrapper.m_BombeActionsCallbackInterfaces.Add(instance);
-            @SpawnBomb.started += instance.OnSpawnBomb;
-            @SpawnBomb.performed += instance.OnSpawnBomb;
-            @SpawnBomb.canceled += instance.OnSpawnBomb;
-        }
-
-        private void UnregisterCallbacks(IBombeActions instance)
-        {
-            @SpawnBomb.started -= instance.OnSpawnBomb;
-            @SpawnBomb.performed -= instance.OnSpawnBomb;
-            @SpawnBomb.canceled -= instance.OnSpawnBomb;
-        }
-
-        public void RemoveCallbacks(IBombeActions instance)
-        {
-            if (m_Wrapper.m_BombeActionsCallbackInterfaces.Remove(instance))
-                UnregisterCallbacks(instance);
-        }
-
-        public void SetCallbacks(IBombeActions instance)
-        {
-            foreach (var item in m_Wrapper.m_BombeActionsCallbackInterfaces)
-                UnregisterCallbacks(item);
-            m_Wrapper.m_BombeActionsCallbackInterfaces.Clear();
-            AddCallbacks(instance);
-        }
-    }
-    public BombeActions @Bombe => new BombeActions(this);
     public interface IMovementActions
     {
-        void OnForward(InputAction.CallbackContext context);
-    }
-    public interface IBombeActions
-    {
-        void OnSpawnBomb(InputAction.CallbackContext context);
+        void OnMove(InputAction.CallbackContext context);
+        void OnBombe(InputAction.CallbackContext context);
+        void OnRotateCam(InputAction.CallbackContext context);
     }
 }
