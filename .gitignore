@@ -26,6 +26,9 @@
 # Visual Studio cache directory
 .vs/
 Library/
+Logs/
+Log/
+Temp/
 
 
 # Gradle cache directory
