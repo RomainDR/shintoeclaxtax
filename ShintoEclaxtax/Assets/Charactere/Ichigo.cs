@@ -21,6 +21,7 @@ public class Ichigo : MonoBehaviour
 
     bool hasBomb = false;
 
+    public int Life { get => life; set => life = value; }
     private void Awake()
     {
         controlInput = new ControlsIchigo();

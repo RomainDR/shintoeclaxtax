@@ -18,16 +18,16 @@ public class SpringArm : MonoBehaviour
 
     public Vector3 FinalPosition => transform.position + finalPositionCam;
 
+    
     void Start()
     {
-        finalPosition = transform.position + new Vector3(0, upperCamera, -lenght);
-        cam.transform.position = transform.position + FinalPosition;
+        finalPosition = new Vector3(0, upperCamera, -lenght);
         distance = Vector3.Distance(cam.transform.position, transform.position);
 
     }
     void Update()
     {
-        cam.transform.position = FinalPosition;
+        cam.transform.position = finalPositionCam;
         distance = Vector3.Distance(cam.transform.position, transform.position);
 
 
@@ -39,7 +39,7 @@ public class SpringArm : MonoBehaviour
     {
         Vector2 _newPosition = GetTrigo(_angle);
         lenght = _newPosition.y;
-        finalPositionCam = new Vector3(_newPosition.x, 0, _newPosition.y);
+        finalPositionCam = cam.transform.position + new Vector3(_newPosition.x, 0, _newPosition.y);
     }
 
     private Vector2 GetTrigo(float _angle)
