@@ -8,16 +8,15 @@ public class AnimIchigo : MonoBehaviour
     [SerializeField] Animator animator;
     private void Awake()
     {
-        Ichigo.OnMove += SetMove;
+        Ichigo.OnMoveForward += SetMoveForward;
+        Ichigo.OnMoveRight += SetRightMove;
     }
-    void SetMove(Vector3 _axis)
+    void SetMoveForward(float _axis)
     {
-        if (_axis.z != 0)
-            animator.SetFloat("Speed", _axis.z);
-        else if (_axis.x != 0 )
-            animator.SetFloat("Speed", _axis.x);
-        else
-            animator.SetFloat("Speed", 0);
-
+        animator.SetFloat("Speed", _axis);
+    }
+    void SetRightMove(float _axis)
+    {
+        animator.SetFloat("SpeedRight", _axis);
     }
 }

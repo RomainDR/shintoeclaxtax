@@ -28,15 +28,6 @@ public partial class @ControlsIchigo: IInputActionCollection2, IDisposable
             ""id"": ""41f090e8-03dc-47ed-8e13-641874058aff"",
             ""actions"": [
                 {
-                    ""name"": ""Move"",
-                    ""type"": ""Value"",
-                    ""id"": ""f3d91a81-837a-456e-85cb-893f7aa0e9b7"",
-                    ""expectedControlType"": ""Vector3"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": true
-                },
-                {
                     ""name"": ""Bombe"",
                     ""type"": ""Button"",
                     ""id"": ""a0dd5518-e0a9-4e50-b6ed-1cacb4c9d88f"",
@@ -53,86 +44,27 @@ public partial class @ControlsIchigo: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""Forward"",
+                    ""type"": ""Value"",
+                    ""id"": ""7fc989d0-b850-40dc-9241-6a021d8a482f"",
+                    ""expectedControlType"": ""Axis"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""Right"",
+                    ""type"": ""Value"",
+                    ""id"": ""1c0b9c46-4073-4056-ab1c-947603872a4e"",
+                    ""expectedControlType"": ""Axis"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
                 }
             ],
             ""bindings"": [
-                {
-                    ""name"": ""3D Vector"",
-                    ""id"": ""c6b8e59d-8d02-450f-a3d0-4322a3b9d0d8"",
-                    ""path"": ""3DVector"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Move"",
-                    ""isComposite"": true,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": ""up"",
-                    ""id"": ""dc0e9617-2c24-4348-90e7-ee4499d018be"",
-                    ""path"": """",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Move"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""down"",
-                    ""id"": ""3380b1e8-6304-4ff6-9a16-6e4fa9aa4731"",
-                    ""path"": """",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Move"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""left"",
-                    ""id"": ""5ed6f27b-42fb-4eb5-ab38-d9ceea13e97b"",
-                    ""path"": ""<Keyboard>/a"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Move"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""right"",
-                    ""id"": ""10feab0a-61cd-4caa-a3fa-4f94867615ea"",
-                    ""path"": ""<Keyboard>/d"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Move"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""forward"",
-                    ""id"": ""3cb55222-22f9-4ee3-8ccd-f5170b7a486c"",
-                    ""path"": ""<Keyboard>/w"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Move"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""backward"",
-                    ""id"": ""417aaa31-625f-451d-83d5-28df784da9b3"",
-                    ""path"": ""<Keyboard>/s"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Move"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
                 {
                     ""name"": """",
                     ""id"": ""3b599c8c-d74f-4309-890c-3869dd340b4e"",
@@ -158,7 +90,7 @@ public partial class @ControlsIchigo: IInputActionCollection2, IDisposable
                 {
                     ""name"": ""negative"",
                     ""id"": ""363dd7e4-9f2e-4388-8115-798ee1b41a6c"",
-                    ""path"": ""<Mouse>/delta/left"",
+                    ""path"": ""<Mouse>/delta/right"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -169,11 +101,77 @@ public partial class @ControlsIchigo: IInputActionCollection2, IDisposable
                 {
                     ""name"": ""positive"",
                     ""id"": ""3ecbf7f9-a31a-4a36-86c3-8ad2f14b4029"",
-                    ""path"": ""<Mouse>/delta/right"",
+                    ""path"": ""<Mouse>/delta/left"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""RotateCam"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""1D Axis"",
+                    ""id"": ""34b36fca-919f-40b8-bbe4-2d5c6ce2ea7d"",
+                    ""path"": ""1DAxis"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Forward"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""negative"",
+                    ""id"": ""b45684a0-3866-4e20-8a5e-da8de99b4e40"",
+                    ""path"": ""<Keyboard>/s"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Forward"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""positive"",
+                    ""id"": ""988ad727-d6f6-4844-935f-a8d7ca7970c1"",
+                    ""path"": ""<Keyboard>/w"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Forward"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""1D Axis"",
+                    ""id"": ""be6695b6-3ea4-42dd-b8bd-e35344c4a00f"",
+                    ""path"": ""1DAxis"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Right"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""negative"",
+                    ""id"": ""f08c521b-5ea3-48c7-b59b-827c1a6fc52e"",
+                    ""path"": ""<Keyboard>/a"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Right"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""positive"",
+                    ""id"": ""4b6767af-22fb-474f-b5ce-ca0ab77bfbb3"",
+                    ""path"": ""<Keyboard>/d"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Right"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 }
@@ -184,9 +182,10 @@ public partial class @ControlsIchigo: IInputActionCollection2, IDisposable
 }");
         // Movement
         m_Movement = asset.FindActionMap("Movement", throwIfNotFound: true);
-        m_Movement_Move = m_Movement.FindAction("Move", throwIfNotFound: true);
         m_Movement_Bombe = m_Movement.FindAction("Bombe", throwIfNotFound: true);
         m_Movement_RotateCam = m_Movement.FindAction("RotateCam", throwIfNotFound: true);
+        m_Movement_Forward = m_Movement.FindAction("Forward", throwIfNotFound: true);
+        m_Movement_Right = m_Movement.FindAction("Right", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -248,16 +247,18 @@ public partial class @ControlsIchigo: IInputActionCollection2, IDisposable
     // Movement
     private readonly InputActionMap m_Movement;
     private List<IMovementActions> m_MovementActionsCallbackInterfaces = new List<IMovementActions>();
-    private readonly InputAction m_Movement_Move;
     private readonly InputAction m_Movement_Bombe;
     private readonly InputAction m_Movement_RotateCam;
+    private readonly InputAction m_Movement_Forward;
+    private readonly InputAction m_Movement_Right;
     public struct MovementActions
     {
         private @ControlsIchigo m_Wrapper;
         public MovementActions(@ControlsIchigo wrapper) { m_Wrapper = wrapper; }
-        public InputAction @Move => m_Wrapper.m_Movement_Move;
         public InputAction @Bombe => m_Wrapper.m_Movement_Bombe;
         public InputAction @RotateCam => m_Wrapper.m_Movement_RotateCam;
+        public InputAction @Forward => m_Wrapper.m_Movement_Forward;
+        public InputAction @Right => m_Wrapper.m_Movement_Right;
         public InputActionMap Get() { return m_Wrapper.m_Movement; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -267,28 +268,34 @@ public partial class @ControlsIchigo: IInputActionCollection2, IDisposable
         {
             if (instance == null || m_Wrapper.m_MovementActionsCallbackInterfaces.Contains(instance)) return;
             m_Wrapper.m_MovementActionsCallbackInterfaces.Add(instance);
-            @Move.started += instance.OnMove;
-            @Move.performed += instance.OnMove;
-            @Move.canceled += instance.OnMove;
             @Bombe.started += instance.OnBombe;
             @Bombe.performed += instance.OnBombe;
             @Bombe.canceled += instance.OnBombe;
             @RotateCam.started += instance.OnRotateCam;
             @RotateCam.performed += instance.OnRotateCam;
             @RotateCam.canceled += instance.OnRotateCam;
+            @Forward.started += instance.OnForward;
+            @Forward.performed += instance.OnForward;
+            @Forward.canceled += instance.OnForward;
+            @Right.started += instance.OnRight;
+            @Right.performed += instance.OnRight;
+            @Right.canceled += instance.OnRight;
         }
 
         private void UnregisterCallbacks(IMovementActions instance)
         {
-            @Move.started -= instance.OnMove;
-            @Move.performed -= instance.OnMove;
-            @Move.canceled -= instance.OnMove;
             @Bombe.started -= instance.OnBombe;
             @Bombe.performed -= instance.OnBombe;
             @Bombe.canceled -= instance.OnBombe;
             @RotateCam.started -= instance.OnRotateCam;
             @RotateCam.performed -= instance.OnRotateCam;
             @RotateCam.canceled -= instance.OnRotateCam;
+            @Forward.started -= instance.OnForward;
+            @Forward.performed -= instance.OnForward;
+            @Forward.canceled -= instance.OnForward;
+            @Right.started -= instance.OnRight;
+            @Right.performed -= instance.OnRight;
+            @Right.canceled -= instance.OnRight;
         }
 
         public void RemoveCallbacks(IMovementActions instance)
@@ -308,8 +315,9 @@ public partial class @ControlsIchigo: IInputActionCollection2, IDisposable
     public MovementActions @Movement => new MovementActions(this);
     public interface IMovementActions
     {
-        void OnMove(InputAction.CallbackContext context);
         void OnBombe(InputAction.CallbackContext context);
         void OnRotateCam(InputAction.CallbackContext context);
+        void OnForward(InputAction.CallbackContext context);
+        void OnRight(InputAction.CallbackContext context);
     }
 }
