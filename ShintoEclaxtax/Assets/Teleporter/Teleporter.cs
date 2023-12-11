@@ -20,7 +20,6 @@ public class Teleporter : MonoBehaviour
         Ichigo _player = other.GetComponent<Ichigo>();
         if(!_player)
             return;
-        Debug.Log("trigger");
         _player.IsTeleport = true;
         timer.Interval = 100;
         timer.Elapsed += (s, e) =>

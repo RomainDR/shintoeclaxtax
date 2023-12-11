@@ -28,12 +28,16 @@ public class IceExplode : ExplodeZone
 	{
 		base.OnTriggerEnter(_other);
 		IcePlateform _object = _other.GetComponent<IcePlateform>();
-		if (!_object) return;
+		if (_object)
 			_object.Enable();
 
 		Sniper _sniper = _other.GetComponent<Sniper>();
-		if (!_sniper) return;
-		_sniper.Damage(damage);
+		if (_sniper) 
+			_sniper.Damage(damage);
+
+		Funtaine _funtain = _other.GetComponent<Funtaine>();
+		if( _funtain )
+			_funtain.Enable();
 	}
 
 	public T CastPlateform<T>(Plateform _plateform) where T : Plateform

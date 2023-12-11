@@ -8,7 +8,8 @@ public class Funtaine : MonoBehaviour
 
     public void Enable()
     {
-        Instantiate(iceBlock, transform.position, transform.rotation);
+        Transform _iceBlock = Instantiate(iceBlock, transform.position, transform.rotation);
+        _iceBlock.localScale = transform.lossyScale;
         Destroy(gameObject);
     }
 }

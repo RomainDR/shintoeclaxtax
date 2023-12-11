@@ -72,7 +72,7 @@ public class Ichigo : MonoBehaviour
     private void MoveRight()
     {
         float _moveRight = rightmove.ReadValue<float>();
-        transform.position = Vector3.Lerp(transform.position, transform.position + arm.Cam.transform.right * _moveRight, Time.deltaTime * speed);
+        transform.position = Vector3.MoveTowards(transform.position, transform.position + arm.Cam.transform.right * _moveRight, Time.deltaTime * speed * 4);
         if (_moveRight > 0)
             transform.eulerAngles = new Vector3(transform.eulerAngles.x, arm.Cam.transform.eulerAngles.y + 90, transform.eulerAngles.z);
         if (_moveRight < 0)

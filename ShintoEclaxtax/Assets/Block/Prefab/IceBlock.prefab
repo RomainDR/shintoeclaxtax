@@ -440,7 +440,7 @@ MonoBehaviour:
   outLayer:
     serializedVersion: 2
     m_Bits: 55
-  speedGravity: 2
+  speedGravity: 4
 --- !u!54 &8075427819747828397
 Rigidbody:
   m_ObjectHideFlags: 0

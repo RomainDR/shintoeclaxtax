@@ -29,7 +29,6 @@ public class Block : MonoBehaviour
 
     private void ColliseionGravity()
     {
-
         gravity = true;
     }
 
@@ -54,22 +53,29 @@ public class Block : MonoBehaviour
 
     private void Gravity()
     {
+
         transform.position = Vector3.MoveTowards(transform.position, transform.position - transform.up * speedGravity, Time.deltaTime);
     }
 
     public virtual void CollisionForward(Collider _collider)
     {
- 
+        Funtaine _funtain = _collider.GetComponent<Funtaine>();
+        if (_funtain) return;
     }
     public virtual void CollisionBack(Collider _collider)
     {
-
+        Funtaine _funtain = _collider.GetComponent<Funtaine>();
+        if (_funtain) return;
     }
     public virtual void CollisionRight(Collider _collider)
     {
+        Funtaine _funtain = _collider.GetComponent<Funtaine>();
+        if (_funtain) return;
     }
     public virtual void CollisionLeft(Collider _collider)
-    { 
+    {
+        Funtaine _funtain = _collider.GetComponent<Funtaine>();
+        if (_funtain) return;
     }
     protected void Move()
     {

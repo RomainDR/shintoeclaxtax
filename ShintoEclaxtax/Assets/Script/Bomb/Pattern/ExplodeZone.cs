@@ -21,9 +21,11 @@ public class ExplodeZone : MonoBehaviour
 	{
 		Ichigo _player = _other.GetComponent<Ichigo>();
 		//TestPlayer _player = _other.GetComponent<TestPlayer>();
-		if (!_player) return;
-		Debug.Log(damage);
-		Ichigo.OnDammge?.Invoke(damagePlayer);
+		if (_player)
+		{
+			Ichigo.OnDammge?.Invoke(damagePlayer);
+
+		}
 
     }
 

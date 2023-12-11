@@ -20,6 +20,8 @@ public class GravityCollider : MonoBehaviour
     
     void OnTriggerExit(Collider other)
     {
+        Funtaine _funtain = other.GetComponent<Funtaine>();
+        if (_funtain) return;
         OnColliderExit?.Invoke();
     }
 }
