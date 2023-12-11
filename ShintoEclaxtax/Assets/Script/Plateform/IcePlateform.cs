@@ -14,7 +14,7 @@ public class IcePlateform : Plateform
 	[SerializeField] LayerMask solidLayer;
 	[SerializeField] LayerMask worldLayer;
 
-
+	bool isFreeze = false;
 
 	private void Awake()
 	{

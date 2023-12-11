@@ -13,6 +13,8 @@ public class PressurePlateform : MovablePlateform
 	public Vector3 BPos => b.transform.position;
 
 
+	private void Start() => transform.position = APos;
+	
 	public override void Enable()
 	{
 		base.Enable();

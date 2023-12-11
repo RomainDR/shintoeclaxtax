@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UIElements;
 
 public class Ichigo : MonoBehaviour
 {
@@ -11,6 +12,10 @@ public class Ichigo : MonoBehaviour
     public static event Action<float> OnMoveRight;
     public static event Action OnDead;
     public static Action<int> OnDammge;
+
+    public static Action<Bomb> OnPickBomb;
+    public int MaxLife => lifemax;
+    public Bomb[] Bombs => bomb;
 
     ControlsIchigo controlInput = null;
     InputAction forward = null;
@@ -27,32 +32,32 @@ public class Ichigo : MonoBehaviour
     [SerializeField] SpringArm arm = null;
 
     float axiscam = 0;
-
+    bool isTeleport = false;
     public int Life { get => life; set => life = value; }
+    public bool IsTeleport { get =>isTeleport; set => isTeleport = value; }
+
     private void Awake()
     {
         controlInput = new ControlsIchigo();
         OnDammge += OnTakeDammage;
         OnDead += Dead;
+        OnPickBomb += PickupBomb;
     }
 
     private void FireBomb(InputAction.CallbackContext obj)
     {
+        if (bomb.Length <= 0) return;
         Bomb _bomb = Instantiate(bomb[0]);
         _bomb.Spawn(transform);
     }
 
-    void Start()
-    {
-        
-    }
-
     void Update()
-    {       
+    {
+        if (isTeleport)
+            return;
         MoveForward();
         MoveRight();
         RotateCam();
-
     }
 
     private void Dead()
@@ -67,22 +72,22 @@ public class Ichigo : MonoBehaviour
     private void MoveRight()
     {
         float _moveRight = rightmove.ReadValue<float>();
-        charaControl.SimpleMove(arm.Cam.transform.right * _moveRight* speed);
+        transform.position = Vector3.Lerp(transform.position, transform.position + arm.Cam.transform.right * _moveRight, Time.deltaTime * speed);
         if (_moveRight > 0)
-            transform.eulerAngles = arm.Cam.transform.right * _moveRight;
+            transform.eulerAngles = new Vector3(transform.eulerAngles.x, arm.Cam.transform.eulerAngles.y + 90, transform.eulerAngles.z);
         if (_moveRight < 0)
-            transform.eulerAngles = arm.Cam.transform.right * _moveRight;
+            transform.eulerAngles = new Vector3(transform.eulerAngles.x, arm.Cam.transform.eulerAngles.y - 90, transform.eulerAngles.z);
         OnMoveRight?.Invoke(_moveRight);
     }
 
     void MoveForward()
     {
         float _moveforward = forward.ReadValue<float>();
-        charaControl.SimpleMove(arm.Cam.transform.forward * _moveforward * 10);
+        charaControl.SimpleMove(arm.Cam.transform.forward * _moveforward * speed);
         if(_moveforward > 0)
-            transform.rotation = arm.Cam.transform.rotation;
+            transform.eulerAngles = new Vector3(transform.eulerAngles.x,arm.Cam.transform.eulerAngles.y, transform.eulerAngles.z);
         if(_moveforward < 0)
-            transform.rotation = arm.Cam.transform.rotation;
+            transform.eulerAngles = new Vector3(transform.eulerAngles.x, arm.Cam.transform.eulerAngles.y+180, transform.eulerAngles.z);
 
         OnMoveForward?.Invoke(_moveforward);
     }
@@ -90,7 +95,7 @@ public class Ichigo : MonoBehaviour
     private void RotateCam()
     {
         axiscam += rotateCam.ReadValue<float>();
-        arm.RotateSpring(axiscam);
+        arm.SetRotateSpring(axiscam);
 
     }
 
@@ -98,7 +103,7 @@ public class Ichigo : MonoBehaviour
     {
         forward = controlInput.Movement.Forward;
         forward.Enable();
-        rightmove= controlInput.Movement.Right;
+        rightmove = controlInput.Movement.Right;
         rightmove.Enable();
         rotateCam = controlInput.Movement.RotateCam;
         rotateCam.Enable();
@@ -106,6 +111,7 @@ public class Ichigo : MonoBehaviour
         fireBomb.Enable();
         fireBomb.performed += FireBomb;
     }
+
 
     private void OnDisable()
     {
@@ -124,5 +130,13 @@ public class Ichigo : MonoBehaviour
         life -= _dammage;
         if (life < 0)
             OnDead?.Invoke();
+    }
+
+    public void PickupBomb(Bomb collectibleBomb)
+    {
+        Bomb[] _new = new Bomb[bomb.Length + 1];
+        bomb.CopyTo(_new, 0);
+        _new[_new.Length - 1] = collectibleBomb;
+        bomb = _new;
     }
 }

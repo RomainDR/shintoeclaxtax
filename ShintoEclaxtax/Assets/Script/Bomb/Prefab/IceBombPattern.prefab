@@ -82,6 +82,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   size: 10
   damage: 0
-  playerDamage: 10
   timer: {fileID: 7323879686965390816}
   sphereCollider: {fileID: 6934616509535177953}

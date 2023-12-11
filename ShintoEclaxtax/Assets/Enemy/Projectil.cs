@@ -6,6 +6,11 @@ using UnityEngine;
 public class Projectil : MonoBehaviour
 {
     [SerializeField] float speed = 5;
+    private void Start()
+    {
+        Destroy(gameObject,5);
+
+    }
     void Update()
     {
         Move();

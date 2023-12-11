@@ -6,27 +6,24 @@ using static UnityEditor.Experimental.GraphView.GraphView;
 public class IceBlock : Block
 {
 
-    private void Update()
+    protected override void Update()
     {
+        base.Update();
+        if (gravity)
+            return;
         Move();
     }
-    private void OnDrawGizmos()
-    {
-        Gizmos.color = Color.blue;
-        Gizmos.DrawLine(transform.position, transform.position + transform.forward * 5);
-        Gizmos.color = Color.green;
-        Gizmos.DrawLine(transform.position, transform.position + transform.right * 5);
-    }
+
     public override void CollisionForward(Collider _collider)
     {
         base.CollisionForward(_collider);
         Ichigo _player = _collider.GetComponent<Ichigo>();
         if (_player)
         {
-            newDirection = transform.position- transform.forward* speed;
+            newDirection = - transform.forward* speed;
             return;
         }
-        newDirection = transform.position;
+        newDirection = Vector3.zero;
     }
     public override void CollisionBack(Collider _collider)
     {
@@ -34,10 +31,11 @@ public class IceBlock : Block
         Ichigo _player = _collider.GetComponent<Ichigo>();
         if (_player)
         {
-            newDirection = transform.position + transform.forward * speed;
+            newDirection = transform.forward * speed;
             return;
         }
-        newDirection = transform.position;
+
+        newDirection = Vector3.zero;
     }
     public override void CollisionRight(Collider _collider)
     {
@@ -46,10 +44,11 @@ public class IceBlock : Block
         Ichigo _player = _collider.GetComponent<Ichigo>();
         if (_player)
         { 
-            newDirection = transform.position - transform.right * speed;
+            newDirection = transform.right * speed;
             return;
         }
-        newDirection = transform.position;
+
+        newDirection = Vector3.zero;
     }
     public override void CollisionLeft(Collider _collider)
     {
@@ -58,10 +57,11 @@ public class IceBlock : Block
         Ichigo _player = _collider.GetComponent<Ichigo>();
         if (_player )
         {
-            newDirection = transform.position + transform.right * speed;
+            newDirection = transform.right * speed;
             return;
         }
-        newDirection = transform.position;
+
+        newDirection = Vector3.zero;
     }
 
 }

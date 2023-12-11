@@ -18,8 +18,9 @@ public class TestPlayer : MonoBehaviour
 
 	public void Start()
 	{
+		/*
 		OnTakeDamage += DamagePlayer;
-		textBomb.text = bombRef.Name;
+		textBomb.text = bombRef.Name;*/
 		
 	}
 	public void Update()

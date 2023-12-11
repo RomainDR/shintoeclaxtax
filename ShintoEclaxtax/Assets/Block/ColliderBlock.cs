@@ -11,7 +11,8 @@ public class ColliderBlock : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        Debug.Log("Enter");
         OnCollisionEnter?.Invoke(other);
-        Debug.Log("trigger");
+        
     }
 }

@@ -13,10 +13,15 @@ public class AnimIchigo : MonoBehaviour
     }
     void SetMoveForward(float _axis)
     {
-        animator.SetFloat("Speed", _axis);
+        if (_axis != 0)
+            animator.SetBool("Right", false);
+        animator.SetFloat("SpeedForward", _axis);
+
     }
     void SetRightMove(float _axis)
     {
+        if(_axis!=0)
+            animator.SetBool("Right", true);
         animator.SetFloat("SpeedRight", _axis);
     }
 }

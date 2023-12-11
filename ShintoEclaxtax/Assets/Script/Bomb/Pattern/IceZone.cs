@@ -27,10 +27,13 @@ public class IceExplode : ExplodeZone
 	public override void OnTriggerEnter(Collider _other)
 	{
 		base.OnTriggerEnter(_other);
-		Plateform _plateform = _other.GetComponent<Plateform>();
-		IcePlateform _icePlateform = CastPlateform<IcePlateform>(_plateform);
-		if (_icePlateform)
-			_icePlateform.Enable();
+		IcePlateform _object = _other.GetComponent<IcePlateform>();
+		if (!_object) return;
+			_object.Enable();
+
+		Sniper _sniper = _other.GetComponent<Sniper>();
+		if (!_sniper) return;
+		_sniper.Damage(damage);
 	}
 
 	public T CastPlateform<T>(Plateform _plateform) where T : Plateform

@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class SpringArm : MonoBehaviour
+public class SpringArmA : MonoBehaviour
 {
     [SerializeField] Camera cam = null;
     [SerializeField] LayerMask outLayer;
