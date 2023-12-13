@@ -14,8 +14,7 @@ public class IcePlateform : Plateform
 	[SerializeField] LayerMask solidLayer;
 	[SerializeField] LayerMask worldLayer;
 
-	bool isFreeze = false;
-
+	private bool isFreeze = false;
 	private void Awake()
 	{
 		if (!materialFreeze || !materialBlock) throw new SException("Materials is invalid");
@@ -28,7 +27,7 @@ public class IcePlateform : Plateform
 	
 	public override void Enable()
 	{
-		if (isInfiniteFreeze) return;
+		if (isInfiniteFreeze && isFreeze) return;
 		if (IsEnabled)
 		{
 			timerFreeze.Restart();
@@ -40,15 +39,17 @@ public class IcePlateform : Plateform
 			timerFreeze.StartTimer();
 		else
 			SetIceBlock();
+		isFreeze = true;
 	}
 	public override void Disable()
 	{
 		base.Disable();
 		mesh.material = materialBlock;
 		timerFreeze.Restart();
+		isFreeze = false;
 		ChangeLayer(worldLayer);
 	}
-	public void SetIceBlock()
+	void SetIceBlock()
 	{
 		mesh.material = materialFreeze;
 		ChangeLayer(solidLayer);
@@ -56,8 +57,8 @@ public class IcePlateform : Plateform
 
 	private void OnCollisionEnter(Collision collision)
 	{
-		//Ichigo _player = collision.gameObject.GetComponent<Ichigo>();
-		TestPlayer _player = collision.gameObject.GetComponent<TestPlayer>();
+		Ichigo _player = collision.gameObject.GetComponent<Ichigo>();
+		//TestPlayer _player = collision.gameObject.GetComponent<TestPlayer>();
 		if (!_player) return;
 		_player.gameObject.transform.position = collision.transform.position;
 	}

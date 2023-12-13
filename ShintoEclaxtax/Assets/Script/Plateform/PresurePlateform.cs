@@ -25,7 +25,7 @@ public class PressurePlateform : MovablePlateform
 	{
 		if (isAtStart) return;
 
-		if (!IsEnabled)
+		/*if (!IsEnabled)
 		{
 			if (Vector3.Distance(transform.position, APos) > 0.1f)
 				transform.position = Vector3.MoveTowards(transform.position, APos, Time.deltaTime * moveSpeed);
@@ -37,8 +37,13 @@ public class PressurePlateform : MovablePlateform
 		if (Vector3.Distance(transform.position, !targetB ? BPos : APos) < 0.1f)
 		{
 			targetB = !targetB;
-		}
+		}*/
+		if (IsEnabled && Vector3.Distance(transform.position, BPos) > 0.1f)
+			transform.position = Vector3.MoveTowards(transform.position, BPos, Time.deltaTime * moveSpeed);
+		else if (Vector3.Distance(transform.position, APos) > 0.1f)
+			transform.position = Vector3.MoveTowards(transform.position, APos, Time.deltaTime * moveSpeed);
 	}
+
 	private void OnDrawGizmos()
 	{
 		if (!useDebug) return;
